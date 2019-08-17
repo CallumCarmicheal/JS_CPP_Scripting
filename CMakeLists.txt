@@ -22,7 +22,7 @@ set(PROJECT_FILES
     src/headers/classes.h
     src/headers/renderer.h
     src/scripting/duk_trans_socket.h
-    src/scripting/duk_debugger.h
+    src/scripting/duk_extensions.h
     
     src/globals.cpp
     src/configuration.cpp
@@ -32,7 +32,8 @@ set(PROJECT_FILES
     src/renderer.cpp
     src/scripting/duk_trans_socket_windows.cpp
     src/scripting/duk_debugger.cpp
-    
+    src/scripting/duk_module_loader.cpp
+
     # Entry point
     src/main.cpp)
 
@@ -45,6 +46,9 @@ set (PROJECT_LIBS
     libs/duktape/extras/print-alert/duk_print_alert.c
     libs/duktape/extras/console/duk_console.h
     libs/duktape/extras/console/duk_console.c
+    libs/duktape/extras/module-node/duk_module_node.h    
+    libs/duktape/extras/module-node/duk_module_node.c
+
     
     # Dukglue
     libs/dukglue/include/dukglue/dukglue.h
@@ -76,6 +80,7 @@ target_include_directories(${PROJECT_NAME} PRIVATE
     libs/duktape/src
     libs/duktape/extras/console
     libs/duktape/extras/print-alert
+    libs/duktape/extras/module-node
     
     libs/dukglue/include
     

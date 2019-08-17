@@ -15,6 +15,7 @@
 #include "headers/application.h"
 #include "headers/classes.h"
 #include "headers/files.hpp"
+#include "scripting/duk_extensions.h"
 
 void dk_tests(duk_context* ctx);
 
@@ -47,6 +48,7 @@ bool Application::initialize() {
 
     // Initialize optional features
     duk_console_init(ctx, DUK_CONSOLE_FLUSH);
+    duk_ext_module_loader(ctx);
 
     return true;
 }
@@ -61,7 +63,6 @@ bool Application::cleanup() {
 
     return true;
 }
-
 
 void Application::run() {
     // Create the global variable (instance)

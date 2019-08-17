@@ -5,6 +5,7 @@
 #include <dukglue/dukglue.h>
 
 #include "../headers/globals.h"
+#include "duk_extensions.h"
 #include "duk_trans_socket.h"
 
 static int debugger_reattach = 1;
@@ -73,7 +74,7 @@ static void debugger_detached(duk_context *ctx, void *udata) {
 }
 
 
-void dh_debugger_start(duk_context* ctx) {
+void duk_ext_debugger_start(duk_context* ctx) {
     // duk_console_init(ctx, DUK_CONSOLE_FLUSH);
     // fprintf(stderr, "Debugger enabled, create socket and wait for connection\n");
     // fflush(stderr);
