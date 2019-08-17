@@ -13,26 +13,30 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 ##### ========== PROJECT SETTINGS ==========
 set(PROJECT_FILES
     # Source files
-    src/headers/globals.h
-    src/headers/configuration.h
-    src/headers/configuration_def.h
-    src/headers/utility.h
-    src/headers/files.hpp
-    src/headers/application.h
-    src/headers/classes.h
-    src/headers/renderer.h
-    src/scripting/duk_trans_socket.h
-    src/scripting/duk_extensions.h
+    src/application/application.h
+    src/application/application.cpp
+    src/application/renderer.h
+    src/application/renderer.cpp
+
+    src/scripting/binding/classes.h
+    src/scripting/binding/classes.cpp
+
+    src/scripting/extensions/duk_extensions.h
+    src/scripting/extensions/duk_module_loader.cpp
+    src/scripting/extensions/duk_debugger.cpp
+    src/scripting/extensions/duk_trans_socket.h
+    src/scripting/extensions/duk_trans_socket_windows.cpp
+
+    src/utility/files.hpp
+    src/utility/utility.h
+    src/utility/utility.cpp
     
-    src/globals.cpp
+    src/configuration_def.h
+    src/configuration.h
     src/configuration.cpp
-    src/utility.cpp
-    src/application.cpp   
-    src/classes.cpp
-    src/renderer.cpp
-    src/scripting/duk_trans_socket_windows.cpp
-    src/scripting/duk_debugger.cpp
-    src/scripting/duk_module_loader.cpp
+    src/globals.h
+    src/globals.cpp
+    src/stdafx.h
 
     # Entry point
     src/main.cpp)
@@ -71,7 +75,10 @@ set (PROJECT_LIBS
     
     # Easylogging ++
     libs/easylogging++/easylogging++.h
-    libs/easylogging++/easylogging++.cc)
+    libs/easylogging++/easylogging++.cc
+    
+    # Nlohmann Json
+    libs/nlohmann_json/nlohmann/json.hpp)
 
 
 add_executable(${PROJECT_NAME} ${PROJECT_LIBS} ${PROJECT_FILES})
@@ -84,7 +91,9 @@ target_include_directories(${PROJECT_NAME} PRIVATE
     
     libs/dukglue/include
     
-    libs/easylogging++)
+    libs/easylogging++
+    
+    libs/nlohmann_json)
 
 # PreProcessor Defs
 target_compile_definitions(${PROJECT_NAME} PRIVATE

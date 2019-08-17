@@ -1,10 +1,10 @@
+#include "../../stdafx.h"
 
 #include <duktape.h>
 #include <duk_console.h>
 #include <duk_print_alert.h>
 #include <dukglue/dukglue.h>
 
-#include "../headers/globals.h"
 #include "duk_extensions.h"
 #include "duk_trans_socket.h"
 

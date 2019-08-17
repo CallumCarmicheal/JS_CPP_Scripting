@@ -16,6 +16,10 @@
 
 #define CONFIG_LOG_PRINT_TO_STDOUT	"true"											// States if the application prints to STDOUT by default
 
+// Enable debug printing in javascript engine
+#define DEBUG_PRINTS 1
+
+
 // ============ FUNCTIONS ============
 
 void CONFIGURATION_LIBRARIES();

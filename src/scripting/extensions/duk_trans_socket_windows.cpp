@@ -50,7 +50,7 @@
 #include <ws2tcpip.h>
 #include <stdio.h>
 #include <string.h>
-#include "duktape.h"
+#include <duktape.h>
 #include "duk_trans_socket.h"
 
 #if defined(_MSC_VER)

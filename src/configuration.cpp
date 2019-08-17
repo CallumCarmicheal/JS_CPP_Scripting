@@ -1,6 +1,7 @@
-#include "headers/utility.h"
-#include "headers/configuration.h"
-#include "headers/configuration_def.h"
+#include "stdafx.h"
+#include "configuration.h"
+#include "configuration_def.h"
+#include "utility/utility.h"
 
 /// ========== Enable configurations
 INITIALIZE_EASYLOGGINGPP

@@ -1,3 +1,4 @@
+#include "../../stdafx.h"
 #include "duk_extensions.h"
 
 #include <duktape.h>

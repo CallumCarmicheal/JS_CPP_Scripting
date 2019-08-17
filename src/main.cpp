@@ -4,11 +4,9 @@
 #include <duktape.h>
 #include <easylogging++.h>
 
-#include "headers/globals.h"
-#include "headers/configuration.h"
-#include "headers/utility.h"
-#include "headers/application.h"
-
+#include "stdafx.h"
+#include "utility/utility.h"
+#include "application/application.h"
 
 using namespace std;
 int duct_main(int argc, char *argv[]);

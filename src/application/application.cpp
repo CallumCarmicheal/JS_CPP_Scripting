@@ -1,8 +1,8 @@
+#include "../stdafx.h"
+
 #include <iostream>
 #include <vector>
 #include <string>
-
-#define DEBUG_PRINTS 1
 
 #include <duktape.h>
 #include <duk_console.h>
@@ -10,12 +10,11 @@
 #include <dukglue/dukglue.h>
 #include <easylogging++.h>
 
-#include "headers/globals.h"
-#include "headers/utility.h"
-#include "headers/application.h"
-#include "headers/classes.h"
-#include "headers/files.hpp"
-#include "scripting/duk_extensions.h"
+#include "../utility/utility.h"
+#include "../utility/files.hpp"
+#include "../application/application.h"
+#include "../scripting/binding/classes.h"
+#include "../scripting/extensions/duk_extensions.h"
 
 void dk_tests(duk_context* ctx);
 
@@ -112,17 +111,17 @@ void Application::run() {
 }
 
 
-static duk_ret_t testFunction(duk_context *ctx) {
-    printf("testFunction\n");
-    duk_push_number(ctx, 55);
-    return 1;
-}
+// static duk_ret_t testFunction(duk_context *ctx) {
+//     printf("testFunction\n");
+//     duk_push_number(ctx, 55);
+//     return 1;
+// }
 
-int testFunctionNoDuk() {
-    printf("testFunctionNoDuk\n");
+// int testFunctionNoDuk() {
+//     printf("testFunctionNoDuk\n");
 
-    return 56;
-}
+//     return 56;
+// }
 
 void dk_tests(duk_context* ctx) {
     // {

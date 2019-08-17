@@ -1,13 +1,13 @@
-#include <sstream>
+#include "../../stdafx.h"
 
+#include <sstream>
 #include <easylogging++.h>
 #include <duktape.h>
 #include <duk_console.h>
 #include <dukglue/dukglue.h>
 
-#include "headers/utility.h"
-#include "headers/classes.h"
-#include "headers/configuration.h"
+#include "../../utility/utility.h"
+#include "classes.h"
 
 using namespace BindingClasses;
 

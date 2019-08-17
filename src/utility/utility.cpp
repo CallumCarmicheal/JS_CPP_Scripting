@@ -3,8 +3,7 @@
 #include <vector>
 #include <string>
 
-
-#include "headers/utility.h"
+#include "utility.h"
 
 void dh_print_stack_to_stdout(duk_context *ctx) {
     duk_push_context_dump(ctx);
