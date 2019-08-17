@@ -1,0 +1,59 @@
+#include <iostream>
+#include <vector>
+#include <string>
+#include <duktape.h>
+#include <easylogging++.h>
+
+#include "headers/configuration.h"
+#include "headers/utility.h"
+#include "headers/application.h"
+
+#define PRINTCOLOUR(x) setAndPrintColour(x, " > " #x)
+#define PRINTCOLOURNL(x) setAndPrintColourNL(x, " > " #x)
+
+void setAndPrintColour(int k, std::string str) {
+	SetStdConsoleTextAttributes(k);
+	std::cout << str << std::endl;
+
+	SetStdConsoleTextAttributes(FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE);
+}
+
+void setAndPrintColourNL(int k, std::string str) {
+	setAndPrintColour(k, str);
+	printf("\n");
+}
+
+void testColours() {
+	std::cout << "Colours:" << std::endl;
+	PRINTCOLOUR(FG_INTENSITY);
+	PRINTCOLOUR(FG_RED | FG_GREEN | FG_BLUE);
+	PRINTCOLOUR(FG_RED | FG_GREEN | FG_BLUE | FG_INTENSITY);
+	
+	PRINTCOLOUR(FG_RED);
+	PRINTCOLOUR(FG_RED | FG_INTENSITY);
+
+	PRINTCOLOUR(FG_GREEN);
+	PRINTCOLOUR(FG_GREEN | FG_INTENSITY);
+
+	PRINTCOLOUR(FG_BLUE);
+	PRINTCOLOUR(FG_BLUE | FG_INTENSITY);
+
+	PRINTCOLOUR(FG_RED | FG_GREEN);
+	PRINTCOLOUR(FG_RED | FG_GREEN | FOREGROUND_INTENSITY);
+	
+	PRINTCOLOUR(FG_RED | FG_BLUE);
+	PRINTCOLOUR(FG_RED | FG_BLUE | FOREGROUND_INTENSITY);
+
+	PRINTCOLOUR(FG_BLUE | FG_GREEN);
+	PRINTCOLOUR(FG_BLUE | FG_GREEN | FOREGROUND_INTENSITY);
+
+	std::cout << "Specials:" << std::endl;
+	PRINTCOLOURNL(FG_RED | FG_GREEN | FG_BLUE | FG_INTENSITY | COMMON_LVB_LEADING_BYTE);
+	PRINTCOLOURNL(FG_RED | FG_GREEN | FG_BLUE | FG_INTENSITY | COMMON_LVB_TRAILING_BYTE);
+	PRINTCOLOURNL(FG_RED | FG_GREEN | FG_BLUE | FG_INTENSITY | COMMON_LVB_GRID_HORIZONTAL);
+	PRINTCOLOURNL(FG_RED | FG_GREEN | FG_BLUE | FG_INTENSITY | COMMON_LVB_GRID_LVERTICAL);
+	PRINTCOLOURNL(FG_RED | FG_GREEN | FG_BLUE | FG_INTENSITY | COMMON_LVB_GRID_RVERTICAL);
+	PRINTCOLOURNL(FG_RED | FG_GREEN | FG_BLUE | FG_INTENSITY | COMMON_LVB_REVERSE_VIDEO);
+	PRINTCOLOURNL(FG_RED | FG_GREEN | FG_BLUE | FG_INTENSITY | COMMON_LVB_UNDERSCORE);
+
+}
