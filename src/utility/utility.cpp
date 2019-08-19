@@ -2,12 +2,23 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <easylogging++.h>
 
 #include "utility.h"
 
+void dh_print_stack_to_stdout(duk_context *ctx, const char* prefix) {
+    duk_push_context_dump(ctx);
+    LOG(DEBUG) << prefix << duk_safe_to_string(ctx, -1);
+
+	//fprintf(stdout, "%s\n", duk_safe_to_string(ctx, -1));
+	duk_pop(ctx);
+}
+
 void dh_print_stack_to_stdout(duk_context *ctx) {
     duk_push_context_dump(ctx);
-	fprintf(stdout, "%s\n", duk_safe_to_string(ctx, -1));
+    LOG(DEBUG) << duk_safe_to_string(ctx, -1);
+
+	//fprintf(stdout, "%s\n", duk_safe_to_string(ctx, -1));
 	duk_pop(ctx);
 }
 

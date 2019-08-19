@@ -27,7 +27,8 @@ set(PROJECT_FILES
     src/scripting/extensions/duk_trans_socket.h
     src/scripting/extensions/duk_trans_socket_windows.cpp
 
-    src/utility/files.hpp
+    src/utility/files.h
+    src/utility/files.cpp
     src/utility/utility.h
     src/utility/utility.cpp
     

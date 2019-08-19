@@ -11,7 +11,7 @@
 #include <easylogging++.h>
 
 #include "../utility/utility.h"
-#include "../utility/files.hpp"
+#include "../utility/files.h"
 #include "../application/application.h"
 #include "../scripting/binding/classes.h"
 #include "../scripting/extensions/duk_extensions.h"
@@ -70,9 +70,8 @@ void Application::run() {
    
 
     // Load the file and execute it.
-    std::string fileSrc = Files::ReadFile("src.js");
-    // LOG(DEBUG) << "File source code:\n" << fileSrc;
-    if (duk_peval_string(ctx, fileSrc.c_str())) {
+    std::string fileSrc = Files::Read("scripts/application.js");
+    if (duk_peval_lstring(ctx, fileSrc.c_str(), fileSrc.length())) {
         // if an error occured while executing, print the stack trace
         duk_get_prop_string(ctx, -1, "stack");
         std::cout << duk_safe_to_string(ctx, -1) << std::endl;

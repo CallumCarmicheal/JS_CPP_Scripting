@@ -1,6 +1,7 @@
 #pragma once
 #include <duk_config.h>
 
+void dh_print_stack_to_stdout(duk_context *ctx, const char* prefix);
 void dh_print_stack_to_stdout(duk_context *ctx);
 
 /**

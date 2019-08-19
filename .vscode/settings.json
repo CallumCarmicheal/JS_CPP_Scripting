@@ -70,6 +70,10 @@
         "xlocmes": "cpp",
         "xlocmon": "cpp",
         "xloctime": "cpp",
-        "duk_internal.h": "c"
+        "duk_internal.h": "c",
+        "clocale": "cpp",
+        "forward_list": "cpp",
+        "numeric": "cpp",
+        "valarray": "cpp"
     }
 }
