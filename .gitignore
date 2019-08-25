@@ -1,5 +1,8 @@
 build
 
+.vscode/c_cpp_properties.json
+libs/duktape/debugger/node_modules
+
 CMakeLists.txt.user
 CMakeCache.txt
 CMakeFiles
